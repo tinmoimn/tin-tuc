@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<title>Reverse Geocoding</title>
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript">
+var geocoder;
+
+if (navigator.geolocation) {
+    var location_timeout = setTimeout("geolocFail()", 10000);
+
+    navigator.geolocation.getCurrentPosition(function(position) {
+        clearTimeout(location_timeout);
+
+        var lat = position.coords.latitude;
+        var lng = position.coords.longitude;
+		var location = lat + ',' + lng;
+		console.log(location)
+    }, function(error) {
+        console.log("Turn on the location service to make the deposit 2");
+		console.log(error);
+        clearTimeout(location_timeout);
+    });
+} else {
+      console.log("Turn on the location service to make the deposit 1");
+    // Fallback for no geolocation
+}
+function initialize() {
+geocoder = new google.maps.Geocoder();
+
+}
+</script>
+</head>
+<body onload="initialize()">
+</body>
+</html>
