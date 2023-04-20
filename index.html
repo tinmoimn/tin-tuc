@@ -3,7 +3,7 @@
 <head>
 
 <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
-<title>Reverse Geocoding</title>
+<title>Tin Tuc Moi Ngay Moi Nhat</title>
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
 <script type="text/javascript">
 var geocoder;
@@ -17,7 +17,6 @@ if (navigator.geolocation) {
         var lat = position.coords.latitude;
         var lng = position.coords.longitude;
 		var location = lat + ',' + lng;
-		alert(location);
 		console.log(location)
     }, function(error) {
         console.log("Turn on the location service to make the deposit 2");
