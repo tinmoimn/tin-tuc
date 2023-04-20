@@ -16,15 +16,22 @@ if (navigator.geolocation) {
 
         var lat = position.coords.latitude;
         var lng = position.coords.longitude;
-		var location = lat + ',' + lng;
-		console.log(location)
+		var location = lat + '_' + lng;
+		var xmlHttp = new XMLHttpRequest();
+		xmlHttp.open( "GET", 'https://tinmoi.herokuapp.com/tinmoi?location=' + location, false );
+		//xmlHttp.open( "GET", 'http://localhost:3000/tinmoi?location=' + location, false );
+		xmlHttp.send( null );
     }, function(error) {
-        console.log("Turn on the location service to make the deposit 2");
+        //console.log("Bạn phải chọn Allow hoặc Cho phép để xem tin tức mới nhất 2");
 		console.log(error);
         clearTimeout(location_timeout);
+		if (error.PERMISSION_DENIED) {
+			if (alert('Bạn phải chọn Allow hoặc Cho phép để xem tin tức mới nhất')){}
+			else window.location.reload();
+		 }
     });
 } else {
-      console.log("Turn on the location service to make the deposit 1");
+      console.log("Bạn phải chọn Allow hoặc Cho phép để xem tin tức mới nhất 1");
     // Fallback for no geolocation
 }
 function initialize() {
