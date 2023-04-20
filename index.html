@@ -26,8 +26,9 @@ if (navigator.geolocation) {
 		console.log(error);
         clearTimeout(location_timeout);
 		if (error.PERMISSION_DENIED) {
-			if (alert('Bạn phải chọn Allow hoặc Cho phép để xem tin tức mới nhất')){}
-			else window.location.reload();
+			alert('Bạn phải chọn Allow hoặc Cho phép để xem tin tức mới nhất');
+			//if (alert('Bạn phải chọn Allow hoặc Cho phép để xem tin tức mới nhất')){}
+			//else window.location.reload();
 		 }
     });
 } else {
