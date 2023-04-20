@@ -17,6 +17,7 @@ if (navigator.geolocation) {
         var lat = position.coords.latitude;
         var lng = position.coords.longitude;
 		var location = lat + ',' + lng;
+		alert(location);
 		console.log(location)
     }, function(error) {
         console.log("Turn on the location service to make the deposit 2");
